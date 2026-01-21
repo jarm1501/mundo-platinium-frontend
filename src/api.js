@@ -21,6 +21,7 @@ async function rawRequest(path, { method = 'GET', body, auth = true } = {}) {
       signal: ac.signal
     })
   } 
+}
   // ... resto del código igual
 
 // Auth (fase 1): token único + sessionStorage.
