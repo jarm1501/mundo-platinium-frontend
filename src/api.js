@@ -1,3 +1,5 @@
+// Definir la URL base del backend usando la variable de entorno VITE_API_URL
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
 // Auth (fase 1): token único + sessionStorage.
 const TOKEN_KEY = 'mp2_token'
 const USUARIO_KEY = 'mp2_usuario'
@@ -127,7 +129,7 @@ async function rawRequest(path, { method = 'GET', body, auth = true } = {}) {
   const ac = new AbortController()
   const timer = setTimeout(() => ac.abort(), 15000)
   try {
-    res = await fetch(path, {
+    res = await fetch(API_BASE_URL + path, {
       method,
       headers,
       credentials: 'include',
