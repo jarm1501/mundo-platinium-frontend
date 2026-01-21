@@ -1,4 +1,6 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+// Ajuste de la definición de API_BASE_URL para evitar errores de doble slash
+// en la URL base.
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
 
 // Auth (fase 1): token único + sessionStorage.
 const TOKEN_KEY = 'mp2_token'
