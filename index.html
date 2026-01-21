@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Mundo Platinium</title>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("tema");
+          if (t !== "oscuro" && t !== "claro") t = "oscuro";
+          document.documentElement.dataset.theme = t;
+          document.documentElement.style.backgroundColor =
+            t === "oscuro" ? "#121212" : "#f5f2ec";
+        } catch (e) {
+          document.documentElement.dataset.theme = "oscuro";
+          document.documentElement.style.backgroundColor = "#121212";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

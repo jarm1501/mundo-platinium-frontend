@@ -1,0 +1,176 @@
+/* Tema: igual al legacy (claro/oscuro) pero controlado por data-theme */
+
+/* Default = oscuro, para evitar flash blanco al cargar */
+:root {
+  --bg: #121212;
+  --panel: #1e1e1e;
+  --text: #f0f0f0;
+  --muted: #bfbfbf;
+  --accent: #e67e22;
+  --card-bg: #171717;
+  --border: rgba(255, 255, 255, 0.06);
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+html[data-theme="oscuro"] {
+  --bg: #121212;
+  --panel: #1e1e1e;
+  --text: #f0f0f0;
+  --muted: #bfbfbf;
+  --accent: #e67e22;
+  --card-bg: #171717;
+  --border: rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="oscuro"] body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+html[data-theme="oscuro"] button,
+html[data-theme="oscuro"] .btn {
+  background-color: var(--accent);
+  color: var(--text);
+}
+
+html[data-theme="oscuro"] button:hover,
+html[data-theme="oscuro"] .btn:hover {
+  background-color: #ca6f1e;
+}
+
+html[data-theme="oscuro"] input,
+html[data-theme="oscuro"] select,
+html[data-theme="oscuro"] textarea {
+  background-color: #2c2c2c;
+  color: var(--text);
+  border: 1px solid #555;
+}
+
+html[data-theme="oscuro"] a {
+  color: #76c7c0;
+}
+
+html[data-theme="oscuro"] .sidebar {
+  background-color: #222;
+}
+
+html[data-theme="oscuro"] .sidebar-nav a {
+  color: var(--text);
+}
+
+html[data-theme="oscuro"] .sidebar-nav a:hover,
+html[data-theme="oscuro"] .sidebar-nav a.is-active {
+  background-color: var(--accent);
+}
+
+html[data-theme="oscuro"] .materiales-tabla th,
+html[data-theme="oscuro"] .materiales-tabla td {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="oscuro"] .materiales-tabla thead th {
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: var(--muted) !important;
+}
+
+html[data-theme="oscuro"] .accordion details {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+}
+
+html[data-theme="oscuro"] .accordion summary {
+  color: var(--text);
+}
+
+html[data-theme="oscuro"] .material-card {
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+html[data-theme="oscuro"] .card-meta,
+html[data-theme="oscuro"] .muted {
+  color: var(--muted);
+}
+
+html[data-theme="oscuro"] .logout-btn {
+  background-color: #c0392b;
+}
+
+html[data-theme="oscuro"] button.logout-btn {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+html[data-theme="oscuro"] .btn-danger,
+html[data-theme="oscuro"] button.btn-danger {
+  background-color: #c0392b;
+  color: #ffffff;
+}
+
+/* Claro */
+html[data-theme="claro"] {
+  --bg: #f5f2ec;
+  --text: #2c2c2c;
+}
+
+html[data-theme="claro"] body {
+  background-color: #f5f2ec;
+  color: #2c2c2c;
+}
+
+html[data-theme="claro"] button {
+  background-color: #f0b45c;
+  color: #2c2c2c;
+}
+
+html[data-theme="claro"] button:hover {
+  background-color: #e39a3a;
+}
+
+html[data-theme="claro"] input,
+html[data-theme="claro"] select,
+html[data-theme="claro"] textarea {
+  background-color: #ffffff;
+  color: #2c2c2c;
+  border: 1px solid #cfa56c;
+}
+
+html[data-theme="claro"] a {
+  color: #8b2e1d;
+  text-decoration: none;
+}
+
+html[data-theme="claro"] a:hover {
+  text-decoration: underline;
+}
+
+html[data-theme="claro"] .sidebar {
+  background-color: #f0e4d3;
+}
+
+html[data-theme="claro"] .sidebar-nav a {
+  color: #3b1f0f;
+}
+
+html[data-theme="claro"] .sidebar-nav a:hover,
+html[data-theme="claro"] .sidebar-nav a.is-active {
+  background-color: #f0b45c;
+}
+
+html[data-theme="claro"] button.logout-btn {
+  background-color: #e74c3c;
+  color: #ffffff;
+}
+
+html[data-theme="claro"] .btn-danger,
+html[data-theme="claro"] button.btn-danger {
+  background-color: #e74c3c;
+  color: #ffffff;
+}

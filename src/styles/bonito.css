@@ -1,0 +1,806 @@
+/* bonito.css — estructura visual moderna */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.chatPanel {
+  width: 320px;
+  height: 460px;
+  max-height: calc(100vh - 110px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 50;
+}
+
+.chatTabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.chatTab {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.chatTab.active {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.chatHint {
+  margin-top: 6px;
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+
+.chatBody {
+  flex: 1;
+  overflow: auto;
+  padding: 10px;
+}
+
+.chatMsg {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  margin-bottom: 8px;
+}
+
+.chatMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+.chatText {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  word-break: break-word;
+}
+
+.chatComposer {
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.chatDel {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  color: inherit;
+  opacity: 0.7;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* Chat tipo Messenger (solo texto) */
+.mpChatDock {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.mpChatList {
+  width: 280px;
+  height: 420px;
+  max-height: calc(100vh - 110px);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mpChatListHeader {
+  background: var(--accent);
+  color: var(--text);
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mpChatListTitle {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.mpChatListBody {
+  padding: 10px;
+  overflow: auto;
+}
+
+.mpChatItem {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 10px;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mpChatItem.active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mpChatItemName {
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.mpChatDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.mpChatWindow {
+  width: 320px;
+  height: 420px;
+  max-height: calc(100vh - 110px);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.mpChatWindowHeader {
+  background: var(--accent);
+  color: var(--text);
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mpChatWindowTitle {
+  font-weight: 900;
+  font-size: 14px;
+}
+
+.mpChatWindowClose {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  padding: 6px 10px;
+  color: inherit;
+  cursor: pointer;
+}
+
+.mpChatWindowBody {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+}
+
+.mpChatBubble {
+  max-width: 85%;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.mpChatBubble.self {
+  margin-left: auto;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mpChatBubbleMeta {
+  font-size: 11px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.mpChatWindowFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+@media (max-width: 980px) {
+  .chatPanel {
+    width: calc(100vw - 24px);
+    height: 420px;
+  }
+}
+
+.error-box {
+  border: 1px solid #e74c3c;
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(231, 76, 60, 0.12);
+}
+
+.error-box strong {
+  color: #e74c3c;
+}
+
+/* Layout principal */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  padding: 20px;
+  background-color: inherit;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacio entre el logo, el botón de tema y la navegación */
+}
+
+.sidebar-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-mp {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  /* La regla más importante para que la imagen no se desborde */
+  display: block;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 15px;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* permite que los hijos se reduzcan correctamente */
+}
+
+/* Contenedor del contenido principal */
+.main-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Login */
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Panel de control */
+.control-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Materiales */
+.materiales-container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.materiales-opciones {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.materiales-opciones li {
+  margin-bottom: 12px;
+}
+
+.advertencia {
+  background-color: #ffeeba;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Botones */
+button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  margin-top: auto;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.btn-promocional {
+  padding: 8px 12px;
+  background: #3498db;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* Formularios */
+input,
+select,
+textarea {
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.volver-inicio {
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Responsive básico */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+}
+
+.input-con-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-con-toggle input {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.input-con-toggle button {
+  position: absolute;
+  top: -4px;
+  right: -30px;
+  transform: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8em;
+  color: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.input-con-toggle button img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Nuevos estilos para principal.html */
+.main-page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  flex: 1;
+}
+
+.seccion {
+  background-color: inherit;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.seccion h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.seccion p {
+  line-height: 1.6;
+}
+
+.seccion ul {
+  list-style: none;
+  padding: 0;
+}
+
+.seccion li {
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.publicidad-card {
+  text-align: center;
+  padding: 30px;
+  border: 2px solid #3498db;
+  border-radius: 12px;
+  background-color: #ecf0f1;
+}
+
+.publicidad-card h3 {
+  font-size: 1.5em;
+  margin-top: 15px;
+}
+
+.publicidad-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Estilos para el panel de cambio de tema en la barra lateral */
+.theme-toggle-container {
+  position: relative;
+  margin: 20px 0;
+}
+
+.theme-toggle-icon {
+  background-color: #2c3e50;
+  color: white;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+  transition: transform 0.3s;
+}
+
+.theme-toggle-icon:hover {
+  transform: scale(1.1);
+}
+
+.theme-panel {
+  position: absolute;
+  top: 0;
+  left: 50px;
+  background-color: #34495e;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: opacity 0.3s, visibility 0.3s;
+  white-space: nowrap;
+}
+
+.theme-panel.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.materiales-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.materiales-tabla th,
+.materiales-tabla td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.materiales-tabla th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.materiales-tabla thead th {
+  font-size: 0.88rem;
+}
+
+/* Lista de materiales en tarjetas */
+.material-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.material-card {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.card-meta {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.card-body {
+  font-size: 0.95rem;
+  color: inherit;
+  margin-bottom: 10px;
+}
+
+.card-body p {
+  margin: 6px 0;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 12px;
+  background: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.btn:hover {
+  opacity: 0.92;
+}
+
+.btn-danger {
+  background: #e74c3c;
+}
+
+.muted {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+/* Estilos para acordeón y tablas dentro de materiales */
+.accordion details {
+  background: var(--card-bg, #fff);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  padding: 6px 6px;
+  margin-bottom: 6px;
+}
+
+.accordion summary {
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  padding: 6px 8px;
+  font-size: 1rem;
+}
+
+.table-wrapper {
+  margin-top: 10px;
+  overflow: auto;
+  max-width: 100%;
+  max-height: 300px;
+}
+
+/* Chart container: tamaño controlado para no salirse */
+.chart-container {
+  max-width: 420px;
+  width: 100%;
+  height: 240px;
+  margin: 8px 0;
+}
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Make buttons smaller to save space */
+.btn,
+.btn-promocional {
+  padding: 6px 10px;
+  font-size: 0.92rem;
+}
+
+.btn-danger {
+  padding: 6px 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .materiales-grid {
+    grid-template-columns: 160px 1fr;
+    gap: 10px;
+  }
+  .table-wrapper {
+    max-height: 220px;
+  }
+  .chart-container {
+    height: 200px;
+  }
+}
+@media (max-width: 700px) {
+  .materiales-grid {
+    grid-template-columns: 1fr;
+  }
+  .materiales-grid aside {
+    position: static;
+  }
+  .table-wrapper {
+    max-height: 180px;
+  }
+  .chart-container {
+    height: 180px;
+  }
+}
+
+/* Ajustes adicionales para compactar la página de materiales y aprovechar espacio */
+.materiales-container {
+  padding: 12px 16px;
+}
+
+/* Grid específico más compacto */
+.materiales-grid {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.materiales-grid aside {
+  width: 100%;
+  position: sticky;
+  top: 12px;
+  align-self: start;
+}
+
+/* Reducir altura del wrapper para tablas y obligar scroll si hay muchas filas */
+.table-wrapper {
+  max-height: 300px;
+  overflow: auto;
+}
+
+/* Cabeceras y títulos más pequeños para ahorrar espacio */
+.main-content header h1 {
+  font-size: 1.25rem;
+  margin-bottom: 6px;
+}
+.main-content header p {
+  margin-bottom: 12px;
+  font-size: 0.98rem;
+}
