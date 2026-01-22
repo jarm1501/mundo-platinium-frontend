@@ -93,13 +93,18 @@ export default function Login() {
         </div>
       </details>
 
-      <form onSubmit={submit} style={{ marginTop: 10 }}>
+      <form onSubmit={submit} style={{ marginTop: 10 }} autoComplete="off">
         <label className="muted">Usuario</label>
         <input
           className="input"
           value={usuario}
           onChange={(e) => setUsuario(e.target.value)}
           autoComplete="username"
+          name="username"
+          inputMode="text"
+          autoCapitalize="none"
+          spellCheck="false"
+          placeholder="Usuario"
           disabled={locked || loading}
         />
 
